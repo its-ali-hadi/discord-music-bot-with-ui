@@ -2,7 +2,7 @@
 
 A powerful Discord Music Bot featuring a dedicated Web Dashboard for seamless playback control. This project combines the robustness of **Discord.js** with a user-friendly **Express.js** web interface, allowing users to search, queue, and control music playback directly from their browser without spamming chat commands.
 
-![Project Banner]([https://placehold.co/500x100/purple/white?text=discord+music+bot]())
+![Project Banner](https://placehold.co/500x100/purple/white?text=discord+music+bot)
 
 ## 🚀 Features
 
