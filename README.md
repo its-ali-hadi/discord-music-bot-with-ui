@@ -73,11 +73,11 @@ Once running, access the web dashboard at: `http://localhost:3000`
 
 | Dashboard Home | Search Results |
 |:---:|:---:|
-| ![Dashboard](https://via.placeholder.com/600x400?text=Dashboard+UI) | ![Search](https://via.placeholder.com/600x400?text=Search+Results) |
+| ![Dashboard](./readme-assets/dashboard.png) | ![Search](./readme-assets/search.png) |
 
 | Now Playing | Mobile View |
 |:---:|:---:|
-| ![Now Playing](https://via.placeholder.com/600x400?text=Now+Playing) | ![Mobile](https://via.placeholder.com/600x400?text=Mobile+Responsive) |
+| ![Now Playing](./readme-assets/nowplaying.png) | ![Mobile](./readme-assets/mobile.png) |
 
 ## 🔌 API Endpoints
 
