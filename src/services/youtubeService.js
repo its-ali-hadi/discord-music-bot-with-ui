@@ -1,13 +1,10 @@
 import { google } from 'googleapis';
 import ytdl from 'ytdl-core';
 import youtubedl from 'youtube-dl-exec';
-// إعداد YouTube API client
 const youtube = google.youtube({
   version: 'v3',
-  auth: process.env.YOUTUBE_API_KEY, // ضع مفتاحك في ملف .env
+  auth: process.env.YOUTUBE_API_KEY,
 });
-
-// البحث في يوتيوب باستخدام YouTube API v3
 export async function searchYouTube(query, limit = 10) {
   const res = await youtube.search.list({
     part: 'snippet',
@@ -19,7 +16,7 @@ export async function searchYouTube(query, limit = 10) {
   return res.data.items.map(item => ({
     id: item.id.videoId,
     title: item.snippet.title,
-    durationInSec: null, // نجيبها لاحقاً من videos.list
+    durationInSec: null,
     duration: null,
     url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
     thumbnail: item.snippet.thumbnails?.default?.url || null,
@@ -27,7 +24,6 @@ export async function searchYouTube(query, limit = 10) {
   }));
 }
 
-// دالة لتحويل الثواني إلى صيغة HH:MM:SS
 function formatDuration(seconds) {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
@@ -38,9 +34,7 @@ function formatDuration(seconds) {
     .replace(/^00:/, '');
 }
 
-// جلب معلومات الفيديو باستخدام YouTube API v3
 export async function getInfo(videoIdOrUrl) {
-  // إذا رابط، نستخرج الـ ID
   let videoId = videoIdOrUrl;
   if (videoIdOrUrl.includes('youtube.com')) {
     const urlObj = new URL(videoIdOrUrl);
@@ -54,7 +48,7 @@ export async function getInfo(videoIdOrUrl) {
 
   if (!res.data.items.length) throw new Error('Video not found');
   const v = res.data.items[0];
-  const durationISO = v.contentDetails.duration; // صيغة ISO 8601 مثل PT4M20S
+  const durationISO = v.contentDetails.duration;
   const durationSec = isoDurationToSeconds(durationISO);
 
   return {
@@ -68,7 +62,6 @@ export async function getInfo(videoIdOrUrl) {
   };
 }
 
-// تحويل مدة ISO 8601 إلى ثواني
 function isoDurationToSeconds(iso) {
   const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
   const hours = parseInt(match[1] || '0', 10);
@@ -77,7 +70,6 @@ function isoDurationToSeconds(iso) {
   return hours * 3600 + minutes * 60 + seconds;
 }
 
-// تشغيل الصوت باستخدام ytdl-core (لأن YouTube API ما يعطي ستريم مباشر)
 export async function streamFromUrl(url) {
   const result = await youtubedl(url, {
     dumpSingleJson: true,

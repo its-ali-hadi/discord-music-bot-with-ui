@@ -65,6 +65,7 @@ npm run dev
 ```bash
 npm start
 ```
+### or open `start-dev.bat`
 
 Once running, access the web dashboard at: `http://localhost:3000`
 
