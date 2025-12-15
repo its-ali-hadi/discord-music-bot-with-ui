@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>nowplaying</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/style.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>مشغل يوتيوب لديسكورد</h1>
+    <nav>
+      <a href="/">البحث والتشغيل</a>
+      <a href="/nowplaying">الآن قيد التشغيل</a>
+    </nav>
+  </header>
+  <main><section class="card">
+  <h2>الآن قيد التشغيل</h2>
+
+  <div class="controls">
+    <button id="btn-status">حالة</button>
+    <button id="btn-pause">إيقاف مؤقت</button>
+    <button id="btn-resume">استئناف</button>
+    <button id="btn-stop">إيقاف</button>
+  </div>
+
+  <div id="nowplaying" class="nowplaying"></div>
+</section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

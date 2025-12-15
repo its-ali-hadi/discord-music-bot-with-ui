@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>discord music bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/style.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>مشغل يوتيوب لديسكورد</h1>
+    <nav>
+      <a href="/">البحث والتشغيل</a>
+      <a href="/nowplaying">الآن قيد التشغيل</a>
+    </nav>
+  </header>
+  <main>
+<section class="card">
+  <h2>بحث أو إدخال رابط يوتيوب</h2>
+
+  <form id="search-form">
+    <label>نص البحث أو الرابط:</label>
+    <input type="text" id="query" placeholder="مثال: Amr Diab - Tamally Ma'ak أو رابط فيديو" required />
+    <button type="submit">بحث</button>
+  </form>
+
+  <div class="inline-fields">
+    <div>
+      <label>Guild ID:</label>
+      <input type="text" id="guildId" value="<%= defaultGuildId %>" placeholder="Guild ID" />
+    </div>
+    <div>
+      <label>Voice Channel ID:</label>
+      <input type="text" id="voiceChannelId" value="<%= defaultVoiceChannelId %>" placeholder="Voice Channel ID" />
+    </div>
+  </div>
+
+  <div id="results" class="results"></div>
+</section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>
